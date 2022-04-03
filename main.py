@@ -4,11 +4,32 @@ class Student:
         self.name = name
         self.gladness= 5.0
         self.progress=0
+        self.money=15
         self.alive=True
+    def teacher_test(self):
+        print("Time to test")
+        if self.money > 12:
+            self.progress+=1
+            self.gladness+=4
+            self.money-=11
+        elif self.money < 11:
+            self.progress+=0.5
+            self.gladness-=2
+    def store(self):
+        print("Time to shoping")
+        self.money-=5
+        self.progress-=0.04
+        self.gladness+=12
+    def to_work(self):
+        print("Time to work")
+        self.money+=10
+        self.gladness-=2
+        self.progress-=0.09
     def to_study(self):
         print("Time to study")
         self.progress+=0.12
         self.gladness-=3
+        self.money-=1
     def to_sleep(self):
         print("I will sleep")
         self.gladness+=3
@@ -16,6 +37,7 @@ class Student:
         print("Rest time")
         self.gladness+=5
         self.progress-=0.1
+        self.money-=2
     def is_alive(self):
         if self.progress < -0.5:
             print("Cast out....")
@@ -23,22 +45,36 @@ class Student:
         elif self.gladness<=0:
             print("Depresion...")
             self.alive=False
+        elif self.money < 5:
+            print("I need money")
+            live_cube = random.randint(1,2)
+            if live_cube==1:
+                self.to_work()
+            elif live_cube==2:
+                self.to_work()
         elif self.progress > 5:
             print("Passed externally..")
             self.alive=False
     def end_of_day(self):
         print(f"Gladness={self.gladness}")
         print(f"Progress={round(self.progress,2)}")
+        print(f"Money={self.money}")
     def live(self, day):
         day= "Day" + str(day) + "of" + self.name + "live"
         print(f"{day:=^50}")
-        live_cube= random.randint(1,3)
+        live_cube= random.randint(1,6)
         if live_cube==1:
             self.to_study()
         elif live_cube==2:
             self.to_sleep()
         elif live_cube==3:
+            self.to_work()
+        elif live_cube==4:
             self.to_chill()
+        elif live_cube==5:
+            self.teacher_test()
+        elif live_cube == 6:
+            self.store()
         self.end_of_day()
         self.is_alive()
 nick=Student(name="Nick")
