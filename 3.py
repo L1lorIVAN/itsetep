@@ -10,23 +10,67 @@ class Human:
         self.home = home
 
     def get_home(self):
-        pass
+        self.home=House()
     def get_car(self):
-        pass
+        self.car=Auto(brand_of_car)
     def get_job(self):
-        pass
+        if self.car.drive():
+            pass
+        else:
+            self.to_repair()
+            return
+        self.job=Job(job_list)
     def eat(self):
-        pass
+        if self.home.food <= 0:
+            self.shopping("shop")
+        else:
+             if self.setietly >= 100:
+                self.satietly = 100
+                return
+        self.satietly += 5
+        self.home.food -= 5
     def work(self):
-        pass
+        if self.car.drive():
+            pass
+        else:
+            if self.car.fuel<20:
+                self.shopping("fuel")
+                return
+            else:
+                self.to_repair()
+                return
+            self.money+=self.job.salary
     def shopping(self, manage):
-        pass
+        if self.car.drive():
+            pass
+        else:
+            if self.car.fuel < 20:
+                manage = "fuel"
+            else:
+                self.to_repair()
+                return
+        if manage == "fuel":
+            print("I bougth fuel")
+            self.money -= 100
+            self.car.fuel += 100
+        elif manage == "food":
+            print("Bought food")
+            self.money -= 50
+            self.home.food += 20
+        elif manage == "sweet":
+            print("Hooray!")
+            self.gladness+=10
+            self.satietly+=2
+            self.money-=15
     def chill(self):
-        pass
+        self.gladness+=10
+        self.home.mess+=5
     def clean_home(self):
-        pass
+        self.gladness-=5
+        self.home.mess=0
     def to_repair(self):
-        pass
+        self.car.strenghth+=100
+        self.money-=50
     def days_indexes(self, day):
         pass
     def is_alive(self):
@@ -67,14 +111,3 @@ class Job:
         "C++ developer":{"salary": 45, "gladness_less": 25},
         "Rust developer":{"salary": 70, "gladness_less": 1},
         "C# developer":{"salary": 90, "gladness_less": 2}}
-    def get_home(self):
-        self.home=House
-    def get_car(self):
-        self.car=Auto(brands_of_car)
-    def get_job(self):
-        if self.car.drive():
-            pass
-        else:
-            self.to_repair()
-            return
-        self.job=Job(job_list)
