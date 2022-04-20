@@ -2,8 +2,26 @@ from tkinter import *
 from tkinter import messagebox
 
 def click():
-    if username_entry =
-
+    username = username_entry.get()
+    password = password_entry.get()
+    if username == "Іван" and password == "b2812":
+        messagebox.showinfo('', f'Вход подтвержден')
+    elif username == "Іларіон" and password == "b2812":
+        messagebox.showinfo('', f'Вход подтвержден')
+    elif username == "Цух" and password == "b2812":
+        messagebox.showinfo('', f'Вход подтвержден')
+    elif username == "Грабовий" and password == "b2812":
+        messagebox.showinfo('', f'Вход подтвержден')
+    elif username == "Денис" and password == "b2812":
+        messagebox.showinfo('', f'Вход подтвержден')
+    elif username == "Віктор" and password == "b2812":
+        messagebox.showinfo('', f'Вход подтвержден')
+    elif username == "Андрій" and password == "b2812":
+        messagebox.showinfo('', f'Вход подтвержден')
+    elif username == "Євген" and password == "b2812":
+        messagebox.showinfo('', f'Вход подтвержден')
+    else:
+        messagebox.showinfo('', f'Вход отменен')
 root = Tk()
 root.title('Авторизація')
 root.geometry('450x230')
